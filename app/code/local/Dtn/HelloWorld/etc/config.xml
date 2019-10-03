@@ -1,0 +1,22 @@
+<config>
+    <modules>
+        <Dtn_HelloWorld>
+            <version>0.1.0</version>
+        </Dtn_HelloWorld>
+    </modules>
+<!--    create a route-->
+    <frontend>
+        <routers>
+<!--            Module name với lowercase-->
+            <helloworld>
+                <use>standard</use>
+                <args>
+<!--                    name đầy đủ của package và module name-->
+                    <module>Dtn_HelloWorld</module>
+<!--                    http://example.com/frontName/actionControllerName/actionMethod/-->
+                    <frontName>helloworld</frontName>
+                </args>
+            </helloworld>
+        </routers>
+    </frontend>
+</config>

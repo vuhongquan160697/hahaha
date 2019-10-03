@@ -1,0 +1,130 @@
+<config>
+    <modules>
+        <Dtn_Weblog>
+            <version>0.1.0</version>
+        </Dtn_Weblog>
+    </modules>
+    <frontend>
+        <routers>
+            <weblog>
+                <use>standard</use>
+                <args>
+                    <module>Dtn_Weblog</module>
+                    <frontName>weblog</frontName>
+                </args>
+            </weblog>
+        </routers>
+        <layout>
+            <updates>
+                <weblog>
+                    <file>weblog.xml</file>
+                </weblog>
+            </updates>
+        </layout>
+    </frontend>
+    <!--    Get Data out arr-->
+    <global>
+        <models>
+            <!--            create model-->
+            <weblog>
+                <class>Dtn_Weblog_Model</class>
+                <!--
+                need to create our own resource, can't just
+                use core_resource
+                -->
+                <resourceModel>weblog_resource</resourceModel>
+            </weblog>
+            <!--            Create resource model-->
+            <weblog_resource>
+                <class>Dtn_Weblog_Model_Resource</class>
+                <entities>
+                    <!--                     thẻ tên bảng-->
+                    <blogpost>
+                        <!--                        Table name in database-->
+                        <table>blog_posts</table>
+                    </blogpost>
+                </entities>
+            </weblog_resource>
+        </models>
+        <resources>
+            <weblog_setup>
+                <setup>
+                    <module>Dtn_Weblog</module>
+                </setup>
+                <class>Dtn_Weblog_Model_Resource_Setup</class>
+            </weblog_setup>
+        </resources>
+        <!--        create menu in system config-->
+        <helpers>
+            <weblog>
+                <class>Dtn_Weblog_Helper</class>
+            </weblog>
+        </helpers>
+        <blocks>
+            <weblog>
+                <class>Dtn_Weblog_Block</class>
+            </weblog>
+        </blocks>
+    </global>
+    <adminhtml>
+        <menu>
+            <weblog><!--tên tùy biến-->
+                <title>Blogpost</title>
+                <sort_order>100</sort_order>
+                <children>enu
+                    <items><!-- Menu cấp 2 thẻ này tùy biến -->
+                        <title>Manage Blogpost</title>
+                        <sort_order>0</sort_order>
+                        <action>weblog/adminhtml_blogpost</action>
+                    </items>
+                </children>
+            </weblog>
+        </menu>
+        <acl>
+            <resources>
+                <admin>  <!--This is acl based on URL. If you see URL it would be /admin/system_config/ -->
+                    <children>
+                        <weblog> <!-- tao quyen menu vua tao o ben tren-->
+                            <title>Blogpost</title>
+                            <sort_order>1000</sort_order>
+                            <items>
+                                <title>Magene Blogpost</title>
+                                <sort_order>0</sort_order>
+                            </items>
+                        </weblog>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <section_name translate="title" >  <!-- This is name of the section created by us -->
+                                            <title>Test Section ACL</title>  <!-- Title as shown in User->Roles->Permissions Window -->
+                                            <sort_order>99</sort_order>
+                                        </section_name>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <weblog>
+                    <file>weblog.xml</file>
+                </weblog>
+            </updates>
+        </layout>
+    </adminhtml>
+    <admin>
+        <routers>
+            <weblog>
+                <use>admin</use>
+                <args>
+                    <module>Dtn_Weblog</module>
+                    <frontName>admin_weblog</frontName>
+                </args>
+            </weblog>
+        </routers>
+    </admin>
+</config>

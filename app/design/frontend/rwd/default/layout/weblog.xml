@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<layout version="0.1.0">
+    <weblog_test_test>
+        <reference name="content">
+            <action method="setTemplate">
+                <template>dtn/weblog/test_page.phtml</template>
+            </action>
+            <block type="weblog/test" name="testcontent" template="dtn/weblog/content_page.phtml"/>
+<!--            template="dtn/weblog/content_page.phtml"-->
+<!--            <block type="page/template_links" name="top.links"/>-->
+        </reference>
+    </weblog_test_test>
+</layout>

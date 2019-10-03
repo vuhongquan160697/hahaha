@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <quanvh translate="label"> <!-- tên tab tùy biến là cái tên ngoài menu cấp 1 trong system config -->
+            <label>quanvh</label><!-- hien thi html -->
+            <sort_order>2000</sort_order><!-- vi tri thu tu -->
+        </quanvh>
+    </tabs>
+    <sections>
+        <section_name translate="label"> <!-- ten secttion tuyf bien  -->
+            <label>Dtn Description</label>
+            <tab>quanvh</tab> <!-- Để biết nó nằm trong thằng cha nào -->
+            <frontend_type>text</frontend_type> <!-- kieeu du lieu -->
+            <sort_order>110</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <group_name translate="label">
+                    <label>Demo Quanvh fields</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <field_name translate="label comment"><!-- Teen field tuy bien -->
+                            <label>Enabled</label>
+                            <comment>
+                                <![CDATA[Comments can contain<strong>HTML</strong>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </field_name>
+                        <field_name2>
+                            <label>My Input Field:</label>
+                            <comment>My Comment</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </field_name2>
+                        <field_name3>
+                            <label>Select</label>
+                            <comment>My Many item</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>30</sort_order>
+                            <source_model>weblog/source</source_model><!-- create source in model -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </field_name3>
+                    </fields>
+                </group_name>
+            </groups>
+        </section_name>
+    </sections>
+</config>
