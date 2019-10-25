@@ -33,9 +33,16 @@ class Dtn_Weblog_IndexController extends Mage_Core_Controller_Front_Action{
      * edit post
      */
     public function editPostAction(){
+        $data = array(
+                'title'=>'The hai mot post',
+                'post'=>'This is a blog post 21',
+            );
+        $blogpostId = $this->getRequest()->getParams('id');
         $blogpost = Mage::getModel('weblog/blogpost');
-        $blogpost->load(1);
-        $blogpost->setTitle('The First Post!!!');
+        $blogpost->load($blogpostId);
+        $blogpost->setTitle($data['title']);
+        $blogpost->setPost($data['post']);
+//        $blogpost->setData($data);
         $blogpost->save();
         echo 'post edited sussesfully';
     }

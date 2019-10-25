@@ -65,6 +65,16 @@
                 <class>Dtn_Weblog_Block</class>
             </weblog>
         </blocks>
+        <events>
+            <customer_register_success>
+                <observers>
+                    <dtn_weblog_blog_observer>
+                        <class>weblog/observer</class>
+                        <method>modifiCustomerName</method>
+                    </dtn_weblog_blog_observer>
+                </observers>
+            </customer_register_success>
+        </events>
     </global>
     <adminhtml>
         <menu>
@@ -127,4 +137,8 @@
             </weblog>
         </routers>
     </admin>
+    <setup>
+        <module>Dtn_Weblog</module>
+        <class>Mage_Customer_Model_Resource_Setup</class>
+    </setup>
 </config>

@@ -1,8 +1,22 @@
 <?xml version="1.0"?>
 <layout>
+    <!--grid-->
     <weblog_adminhtml_blogpost_index>
         <reference name="content">
             <block type="weblog/adminhtml_blogpost" name="blogpost"/>
         </reference>
     </weblog_adminhtml_blogpost_index>
+    <!-- add,edit -->
+    <weblog_adminhtml_blogpost_edit>
+        <update handle="editor" />
+        <reference name="content">
+            <block type="weblog/adminhtml_blogpost_edit" name="new_blogpost_edit" />
+        </reference>
+        <reference name="left">
+            <block type="weblog/adminhtml_blogpost_edit_tabs" name="new blogpost_edit_tabs">
+                <block type="weblog/adminhtml_blogpost_edit_tab_content" name="adminhtml_blogpost_edit_tab_content" />
+                <action method="addTab"><name>content_section</name><block>adminhtml_blogpost_edit_tab_content</block></action>
+            </block>
+        </reference>
+    </weblog_adminhtml_blogpost_edit>
 </layout>
